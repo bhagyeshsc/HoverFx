@@ -1,0 +1,28 @@
+{
+  "name": "hoverfx",
+  "private": true,
+  "version": "0.2.1",
+  "type": "module",
+  "description": "Convert webpage prices on hover using Frankfurter reference rates.",
+  "scripts": {
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:chrome": "wxt build -b chrome",
+    "build:firefox": "wxt build -b firefox",
+    "build:edge": "wxt build -b edge",
+    "build:all": "npm run build:chrome && npm run build:firefox && npm run build:edge",
+    "zip:all": "wxt zip -b chrome && wxt zip -b firefox && wxt zip -b edge",
+    "prepare": "wxt prepare",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/build-standalone.cjs && node --experimental-strip-types --test tests/*.test.mjs",
+    "build:standalone": "node scripts/build-standalone.cjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3",
+    "wxt": "^0.21.4"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
