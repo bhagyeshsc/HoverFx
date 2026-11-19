@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HoverFX</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>hover<span>fx</span><span class="wordmark-dot" aria-hidden="true">.</span></h1>
+      <div class="power">
+        <label class="power-label" for="enabled">Enabled</label>
+        <label class="switch">
+          <input id="enabled" type="checkbox" checked aria-label="Enable HoverFX" />
+          <span class="track" aria-hidden="true"></span>
+        </label>
+      </div>
+    </header>
+
+    <section class="primary" aria-labelledby="currency-label">
+      <label id="currency-label" for="target" class="eyebrow">CONVERT PRICES TO</label>
+      <div class="select-wrap">
+        <div class="selected-currency" aria-hidden="true"><strong id="target-code">INR</strong><span id="target-name">Indian Rupee</span></div>
+        <select id="target" aria-label="Preferred currency"></select>
+        <svg class="caret" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="m5 7.5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      </div>
+      <p class="subtext">Hover over a price to see the conversion.</p>
+    </section>
+
+    <section class="site-section" aria-labelledby="site-title">
+      <div class="section-top">
+        <h2 class="eyebrow" id="site-title">CURRENT WEBSITE</h2>
+        <span id="site-state" class="site-state" role="status"><span class="state-dot" aria-hidden="true"></span><span class="state-text">Checking…</span></span>
+      </div>
+      <p id="site-name" class="domain">Checking current tab…</p>
+      <button class="site-button" id="site-toggle" type="button" disabled>Exclude this website</button>
+    </section>
+
+    <details class="details" id="more-settings">
+      <summary>
+        <span>Website settings</span>
+        <span class="summary-end"><span id="site-count" class="count" aria-label="Excluded website count">0 excluded</span><svg class="details-caret" viewBox="0 0 20 20" width="17" height="17" aria-hidden="true"><path d="m5 7.5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+      </summary>
+      <div class="details-body">
+        <div class="field">
+          <label for="site-source">Source currency on this site</label>
+          <p class="field-help">Use when $ or other symbols are ambiguous.</p>
+          <select id="site-source"><option value="">Detect automatically</option></select>
+        </div>
+
+        <section class="exclusions" aria-labelledby="excluded-title">
+          <h2 id="excluded-title">Excluded websites</h2>
+          <form id="add-site" class="add-site">
+            <input id="domain-input" type="text" placeholder="example.com" aria-label="Website domain to exclude" autocomplete="off" spellcheck="false" />
+            <button type="submit" aria-label="Exclude domain">Add</button>
+          </form>
+          <p class="error-msg" id="form-error" role="alert"></p>
+          <ul id="excluded-list" class="excluded-list"></ul>
+          <p class="empty" id="empty-exclusions">No websites excluded.</p>
+        </section>
+      </div>
+    </details>
+
+    <footer>Reference rates by <a href="https://frankfurter.dev" target="_blank" rel="noopener noreferrer">Frankfurter <span aria-hidden="true">↗</span></a></footer>
+  </main>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>
